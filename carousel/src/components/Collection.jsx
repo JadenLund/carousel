@@ -3,19 +3,20 @@ import { productCarouselData } from "./Information";
 
 export default function Collection() {
   return (
-    <div>
-      {productCarouselData.map((info, index) => (
-        <Card
-          key={`${info.title}_${index}`}
-          product={{
-            title: info.title,
-            image: info.image,
-            description: info.description,
-          }}
-        ></Card>
-      ))}
-
-      {/* map out the cards? */}
+    <div className="overflow-hidden">
+      {/* set height here to hide overflow */}
+      <div className="flex flex-wrap">
+        {productCarouselData.map((info, index) => (
+          <Card
+            key={`${info.title}_${index}`}
+            product={{
+              title: info.title,
+              image: info.image,
+              description: info.description,
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
