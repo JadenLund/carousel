@@ -27,8 +27,9 @@ export default function Display() {
     <div>
       <Collection
         className="flex transition-transform ease-out duration-500"
-        style={{ transform: `translate(-${currentCard * 100}%)` }}
+        style={{ transform: `translate 100%)` }}
       >
+        {/* COME BACK TO THIS PART */}
         {currentCard}
         {console.log(currentCard)}
       </Collection>
