@@ -2,7 +2,8 @@ import Card from "./Card";
 import { productCarouselData } from "./Information";
 import { useState, useEffect } from "react";
 
-export default function Collection({
+export default function Second({
+  children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
 }) {
@@ -30,7 +31,7 @@ export default function Collection({
     <div className="rounded-3xl overflow-hidden relative">
       <div
         className="flex transition-transform ease-out duration-500"
-        style={{ transform: `translate(-${currentCard * 100}%)` }}
+        style={{ transform: `translateX(-${currentCard * 100}%)` }}
       >
         {productCarouselData.map((info, index) => (
           <Card
@@ -40,10 +41,13 @@ export default function Collection({
               image: info.image,
               description: info.description,
             }}
-          />
+            className="flex transition-transform ease-out duration-500"
+            style={{ transform: `translate 100%)` }}
+          ></Card>
         ))}
       </div>
-      <div className="absolute inset-0 flex items-center w-r justify-between p-4">
+
+      <div className="absolute inset-0 flex items-center justify-between p-4">
         {[
           [prevSlide, "<"],
           [nextSlide, ">"],
@@ -54,15 +58,6 @@ export default function Collection({
           >
             {arrow}
           </button>
-        ))}
-      </div>
-
-      <div className="absolute bottom-4 right-0 left-0 flex items-center justify-center gap-2">
-        {productCarouselData.map((_, i) => (
-          <div
-            className={`transition-all w-3 h-3 bg-white rounded-full
-              ${currentCard === i ? "" : "bg-opacity-50"}`}
-          />
         ))}
       </div>
     </div>
